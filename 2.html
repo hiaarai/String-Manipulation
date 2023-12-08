@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>String Manipulation</title>
+
+</head>
+<body>
+  <h1>String Manipulation</h1>
+  <label for="inputString">Enter a String (at least 4 characters):</label>
+  <input type="text" id="inputString">
+  <button onclick="reverseThirdAndFourthCharacters(document.getElementById('inputString').value)">Reverse String</button>
+
+  <div id="result"></div>
+  
+    <script>
+    function reverseThirdAndFourthCharacters(inputString) {
+      // Check if the string has at least 4 characters
+      if (inputString.length < 4) {
+        alert("Please enter a string with at least 4 characters.");
+        return;
+      }
+
+      // Extract the 3rd and 4th characters
+      var thirdAndFourthCharacters = inputString.substring(2, 4);
+
+      // Reverse the 3rd and 4th characters
+      var reversedCharacters = thirdAndFourthCharacters.split('').reverse().join('');
+
+      // Replace the 3rd and 4th characters in the original string with the reversed characters
+      var reversedString = inputString.substring(0, 2) + reversedCharacters + inputString.substring(4);
+
+      // Display the results
+      var resultContainer = document.getElementById('result');
+      resultContainer.innerHTML = 'Original String: ' + inputString + '<br>' +
+                                   'Reversed String with Swapped 3rd and 4th Characters: ' + reversedString;
+    }
+  </script>
+</body>
+</html>
